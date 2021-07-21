@@ -1,9 +1,19 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-function SearchBar() {
+function SearchBar({ searchQuery, setQuery, setSearchQuery }) {
+  const searchImage = () => {
+    setQuery(searchQuery);
+  };
   return (
     <div>
-      <h1>This is the search bar</h1>
+      <input
+        type="text"
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+        }}
+      ></input>
+      <button onClick={searchImage}>Search</button>
     </div>
   );
 }

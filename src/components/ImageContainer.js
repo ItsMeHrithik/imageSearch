@@ -1,9 +1,15 @@
 import React from "react";
+import ImageCard from "./ImageCard";
 
-function ImageContainer() {
+function ImageContainer({ imageData, searchImageData }) {
   return (
     <div>
-      <h1>Image Container</h1>
+      {searchImageData.map((img, key) => (
+        <ImageCard url={img.urls.thumb} key={key} />
+      ))}
+      {imageData.map((img, key) => (
+        <ImageCard url={img.urls.thumb} key={key} />
+      ))}
     </div>
   );
 }
