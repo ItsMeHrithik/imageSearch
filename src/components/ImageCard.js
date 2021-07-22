@@ -3,7 +3,7 @@ import React from "react";
 function ImageCard({ url }) {
   return (
     <div>
-      <img style={{height :"150px", width : "150px"}} src={url} alt="random" />
+      <img style={{height :'220px', width : "85%"}} src={url} alt="random" />
     </div>
   );
 }

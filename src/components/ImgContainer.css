@@ -1,0 +1,27 @@
+.hovereffects {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+
+}
+.hovereffects img {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius:  10px;
+}
+.hovereffects:hover img {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.imageContainers {
+  margin-left: 50px;
+  margin-right: 50px;
+}
