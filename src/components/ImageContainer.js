@@ -62,12 +62,19 @@ function ImageContainer({
           marginTop: "-15px",
           marginLeft: "50px",
           marginRight: "50px",
-          color : 'gray'
+          color: "gray",
         }}
       >
-        <p>{`${
+        {searchImageData.length === 0 ? (
+          <p>{` Sorry ${searchImageData.length} images has been found. Try another Keyword :)`}</p>
+        ) : (
+          <p>{`${
+            imageData.length + searchImageData.length
+          } images has been found`}</p>
+        )}
+        {/* <p>{`${
           imageData.length + searchImageData.length
-        } images has been found`}</p>
+        } images has been found`}</p> */}
       </div>
 
       <div className="row imageContainers">
