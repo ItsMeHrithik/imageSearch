@@ -3,7 +3,6 @@ import ImageCard from "./ImageCard";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../components/ImgContainer.css";
 
-
 function ImageContainer({
   imageData,
   searchImageData,
@@ -11,7 +10,7 @@ function ImageContainer({
   searchLoadImage,
   setLoadImages,
   setSearchLoadImages,
-  query
+  query,
 }) {
   const searchLoadImages = () => {
     setLoadImages((prevValue) => prevValue + 8);
@@ -22,7 +21,7 @@ function ImageContainer({
     return (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <div className="hovereffects">
-          <ImageCard className="img" url={img.urls.thumb} />
+          <ImageCard className="img boxShadow" url={img.urls.thumb} />
         </div>
       </div>
     );
@@ -39,7 +38,7 @@ function ImageContainer({
   };
 
   return (
-    <div className="container">
+    <div className="container fontLink">
       <div
         className="row"
         style={{
@@ -47,7 +46,7 @@ function ImageContainer({
           fontSize: "30px",
           marginLeft: "50px",
           marginRight: "50px",
-          marginTop : "20px"
+          marginTop: "20px",
         }}
       >
         <p>
@@ -56,13 +55,14 @@ function ImageContainer({
       </div>
 
       <div
-        className="row"
+        className="row fontLink"
         style={{
           textAlign: "left",
           fontSize: "15px",
           marginTop: "-15px",
           marginLeft: "50px",
           marginRight: "50px",
+          color : 'gray'
         }}
       >
         <p>{`${
@@ -70,34 +70,23 @@ function ImageContainer({
         } images has been found`}</p>
       </div>
 
-      <div
-        className="row"
-        style={{
-          textAlign: "left",
-          fontSize: "1px",
-          marginLeft: "2px",
-          marginRight: "2px",
-          marginTop: "-10px",
-        }}
-      >
-        <p>{`${
-          searchImageData.length + imageData.length
-        } images has been found`}</p>
-      </div>
       <div className="row imageContainers">
-        {/* {searchImageData.map((img, key) => (
-        <ImageCard  className="col-sm-6" url={img.urls.thumb} key={key} />
-      ))} */}
         {searchImageData
           .slice(0, searchLoadImage)
           .map((itemObj) => itemMakerCard(itemObj))}
+
         {imageData
           .slice(0, loadImage)
           .map((itemObj) => imageMakerCard(itemObj))}
-        <div className="text-center">
+        <div className="text-center fontLink ">
           <button
-            style={{ width: "15%", height : "50px", marginBottom : "50px", marginTop: "50px" }}
-            className="btn btn-dark "
+            style={{
+              width: "auto",
+              height: "50px",
+              marginBottom: "50px",
+              marginTop: "50px",
+            }}
+            className="btn btn-dark boxShadow"
             onClick={searchLoadImages}
           >
             Load More
