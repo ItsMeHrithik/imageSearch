@@ -68,23 +68,38 @@ function ImageContainer({
         {searchImageData.length === 0 ? (
           <p>{` Sorry ${searchImageData.length} images has been found. Try another Keyword :)`}</p>
         ) : (
-          <p>{`${
-            imageData.length + searchImageData.length
-          } images has been found`}</p>
+          <span>
+            {searchImageData.length > 0 ? (
+              <p>{`${
+                searchImageData.length
+              } images has been found`}</p>
+            ) : (
+              <p>{`${
+                imageData.length
+              } images has been found`}</p>
+            )}
+          </span>
         )}
         {/* <p>{`${
           imageData.length + searchImageData.length
         } images has been found`}</p> */}
       </div>
 
-      <div className="row imageContainers">
-        {searchImageData
-          .slice(0, searchLoadImage)
-          .map((itemObj) => itemMakerCard(itemObj))}
+      <div className="row">
+        {searchImageData.length > 0 ? (
+          <span className="row imageContainers">
+            {searchImageData
+              .slice(0, searchLoadImage)
+              .map((itemObj) => itemMakerCard(itemObj))}
+          </span>
+        ) : (
+          <span className="row imageContainers">
+            {imageData
+              .slice(0, loadImage)
+              .map((itemObj) => imageMakerCard(itemObj))}
+          </span>
+        )}
 
-        {imageData
-          .slice(0, loadImage)
-          .map((itemObj) => imageMakerCard(itemObj))}
         <div className="text-center fontLink ">
           <button
             style={{
